@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from time import sleep
 import urllib.request
 import os
+from secret import LOGIN_ID, PASSWORD
 
 
 def main():
@@ -26,8 +27,8 @@ def do_login(driver: WebDriver) -> bool:
 
     try:
         driver.implicitly_wait(30)
-        id_elem = driver.find_element(By.NAME, "username")
-        pass_elem = driver.find_element(By.NAME, "password")
+        id_elem = driver.find_element(By.NAME, LOGIN_ID)
+        pass_elem = driver.find_element(By.NAME, PASSWORD)
         login_btn = driver.find_element(By.XPATH, '//*[@id="loginForm"]/div/div[3]/button')
 
         id_elem.send_keys("******")
